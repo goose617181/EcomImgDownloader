@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>电商图片下载器 · Chrome 扩展</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="一键收集淘宝、京东、拼多多等电商平台商品详情页的所有高清图片，支持批量打包为 ZIP 下载。" />
+  <style>
+    body { font-family: -apple-system, "Segoe UI", "Microsoft YaHei", Roboto, sans-serif; }
+    .glow { box-shadow: 0 0 60px -10px rgba(79,70,229,0.5); }
+    .code-block { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+<!-- Nav -->
+<nav class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+  <div class="flex items-center gap-2">
+    <span class="text-2xl">🛒</span>
+    <span class="font-bold text-lg">EcomImg Downloader</span>
+  </div>
+  <div class="flex gap-6 text-sm text-slate-600">
+    <a href="#features" class="hover:text-indigo-600">功能</a>
+    <a href="#how" class="hover:text-indigo-600">使用方法</a>
+    <a href="#faq" class="hover:text-indigo-600">FAQ</a>
+    <a href="https://github.com/" target="_blank" class="hover:text-indigo-600">GitHub</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="max-w-6xl mx-auto px-6 pt-12 pb-20 text-center">
+  <h1 class="text-5xl font-extrabold tracking-tight">
+    电商商品图，
+    <span class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">一键全收</span>
+  </h1>
+  <p class="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">
+    Chrome 浏览器扩展，自动识别电商详情页的所有商品主图、细节图、懒加载图片，
+    支持单张下载或 <b class="text-indigo-600">批量打包 ZIP</b>，告别逐张右键。
+  </p>
+  <div class="mt-10 flex items-center justify-center gap-4">
+    <a href="extension.zip" class="bg-indigo-600 hover:bg-indigo-700 text-white px-7 py-3 rounded-lg font-medium glow transition">
+      ⬇ 下载扩展包
+    </a>
+    <a href="#how" class="bg-white hover:bg-slate-100 border border-slate-200 px-7 py-3 rounded-lg font-medium transition">
+      查看安装教程
+    </a>
+  </div>
+  <div class="mt-16 inline-block">
+    <div class="bg-white rounded-xl border border-slate-200 p-4 glow text-left text-sm max-w-md mx-auto">
+      <div class="text-slate-400 mb-2">支持平台</div>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <span class="bg-orange-100 text-orange-700 px-2 py-1 rounded">淘宝</span>
+        <span class="bg-red-100 text-red-700 px-2 py-1 rounded">天猫</span>
+        <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded">京东</span>
+        <span class="bg-emerald-100 text-emerald-700 px-2 py-1 rounded">拼多多</span>
+        <span class="bg-pink-100 text-pink-700 px-2 py-1 rounded">小红书</span>
+        <span class="bg-amber-100 text-amber-700 px-2 py-1 rounded">抖音商城</span>
+        <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded">…任意电商</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="max-w-6xl mx-auto px-6 py-16">
+  <h2 class="text-3xl font-bold text-center mb-4">核心功能</h2>
+  <p class="text-slate-500 text-center mb-12">三秒钟，搞定之前三十分钟的体力活。</p>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="bg-white rounded-xl border border-slate-200 p-6 hover:shadow-md transition">
+      <div class="text-3xl mb-3">🔍</div>
+      <h3 class="font-semibold text-lg mb-2">智能扫描</h3>
+      <p class="text-slate-600 text-sm leading-relaxed">
+        自动解析 <code class="code-block bg-slate-100 px-1 rounded">&lt;picture&gt;</code>、
+        <code class="code-block bg-slate-100 px-1 rounded">srcset</code>、懒加载 data-* 属性，
+        连 background-image 里的大图都能抓到。
+      </p>
+    </div>
+    <div class="bg-white rounded-xl border border-slate-200 p-6 hover:shadow-md transition">
+      <div class="text-3xl mb-3">🖼️</div>
+      <h3 class="font-semibold text-lg mb-2">缩略图预览</h3>
+      <p class="text-slate-600 text-sm leading-relaxed">
+        弹窗内网格预览所有图片，点击勾选要下载的，全选/取消一键搞定，
+        再也不用在几十张图里手动翻。
+      </p>
+    </div>
+    <div class="bg-white rounded-xl border border-slate-200 p-6 hover:shadow-md transition">
+      <div class="text-3xl mb-3">📦</div>
+      <h3 class="font-semibold text-lg mb-2">批量 ZIP 打包</h3>
+      <p class="text-slate-600 text-sm leading-relaxed">
+        选中多张点一下"打包 ZIP"，扩展在本地完成下载、打包、触发浏览器保存，
+        零上传服务器，隐私安全。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- How to use -->
+<section id="how" class="bg-slate-100">
+  <div class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-center mb-12">三步上手</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="text-center">
+        <div class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-4 font-bold">1</div>
+        <h3 class="font-semibold mb-2">加载扩展</h3>
+        <p class="text-slate-600 text-sm">
+          打开 <code class="code-block bg-white px-1 rounded">chrome://extensions</code>，
+          右上角开启开发者模式 → 加载已解压的扩展程序 → 选中下载的 <b>extension</b> 文件夹。
+        </p>
+      </div>
+      <div class="text-center">
+        <div class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-4 font-bold">2</div>
+        <h3 class="font-semibold mb-2">进入商品页</h3>
+        <p class="text-slate-600 text-sm">
+          浏览任意电商详情页，点击 Chrome 工具栏里的 🛒 图标弹出操作面板。
+        </p>
+      </div>
+      <div class="text-center">
+        <div class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-4 font-bold">3</div>
+        <h3 class="font-semibold mb-2">点扫描 → 下载</h3>
+        <p class="text-slate-600 text-sm">
+          点"扫描本页图片"，勾选需要的，点"📦 打包 ZIP"，浏览器会自动触发下载。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="max-w-4xl mx-auto px-6 py-16">
+  <h2 class="text-3xl font-bold text-center mb-10">常见问题</h2>
+  <div class="space-y-4">
+    <details class="bg-white rounded-lg border border-slate-200 p-4">
+      <summary class="cursor-pointer font-medium">为什么有些图片打包时会被跳过？</summary>
+      <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+        部分电商服务器开启了防盗链（CORS），浏览器扩展在 <code class="code-block bg-slate-100 px-1 rounded">host_permissions</code>
+        已覆盖 <code class="code-block bg-slate-100 px-1 rounded">{'<all_urls>'}</code>，但仍有少数站点加了 Referer/Origin 校验。
+        单张下载时可直接右键保存，批量 ZIP 会跳过这些受保护的图片并在控制台打印警告。
+      </p>
+    </details>
+    <details class="bg-white rounded-lg border border-slate-200 p-4">
+      <summary class="cursor-pointer font-medium">支持 Safari / Edge 吗？</summary>
+      <p class="mt-2 text-sm text-slate-600">
+        Manifest V3 标准，Edge、Brave、Opera 等 Chromium 内核浏览器直接可用。
+        Safari 因架构不同暂不支持。
+      </p>
+    </details>
+    <details class="bg-white rounded-lg border border-slate-200 p-4">
+      <summary class="cursor-pointer font-medium">扩展会上传我的浏览记录吗？</summary>
+      <p class="mt-2 text-sm text-slate-600">
+        不会。所有图片抓取、打包逻辑均在本地完成，代码已托管到 GitHub，可自行审计。
+        不请求任何第三方 API。
+      </p>
+    </details>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-slate-200 py-8 text-center text-slate-500 text-sm">
+  <p>© 2026 EcomImg Downloader · MIT License · Made with ❤️ for 设计狗与选品师</p>
+</footer>
+
+</body>
+</html>
