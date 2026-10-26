@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>电商图片下载器 · Chrome 扩展</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <meta name="description" content="一键收集淘宝、京东、拼多多等电商平台商品详情页的所有高清图片，支持批量打包为 ZIP 下载。" />
+  <meta name="description" content="一键收集淘宝、京东、拼多多等电商平台商品详情页的所有高清图片，支持单张下载和批量打包为 ZIP 下载。" />
   <style>
     body { font-family: -apple-system, "Segoe UI", "Microsoft YaHei", Roboto, sans-serif; }
     .glow { box-shadow: 0 0 60px -10px rgba(79,70,229,0.5); }
@@ -14,7 +14,6 @@
 </head>
 <body class="bg-slate-50 text-slate-800">
 
-<!-- Nav -->
 <nav class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
   <div class="flex items-center gap-2">
     <span class="text-2xl">🛒</span>
@@ -24,11 +23,10 @@
     <a href="#features" class="hover:text-indigo-600">功能</a>
     <a href="#how" class="hover:text-indigo-600">使用方法</a>
     <a href="#faq" class="hover:text-indigo-600">FAQ</a>
-    <a href="https://github.com/" target="_blank" class="hover:text-indigo-600">GitHub</a>
+    <a href="https://github.com/goose617181/EcomImgDownloader" target="_blank" class="hover:text-indigo-600">GitHub</a>
   </div>
 </nav>
 
-<!-- Hero -->
 <section class="max-w-6xl mx-auto px-6 pt-12 pb-20 text-center">
   <h1 class="text-5xl font-extrabold tracking-tight">
     电商商品图，
@@ -62,7 +60,6 @@
   </div>
 </section>
 
-<!-- Features -->
 <section id="features" class="max-w-6xl mx-auto px-6 py-16">
   <h2 class="text-3xl font-bold text-center mb-4">核心功能</h2>
   <p class="text-slate-500 text-center mb-12">三秒钟，搞定之前三十分钟的体力活。</p>
@@ -95,7 +92,6 @@
   </div>
 </section>
 
-<!-- How to use -->
 <section id="how" class="bg-slate-100">
   <div class="max-w-6xl mx-auto px-6 py-16">
     <h2 class="text-3xl font-bold text-center mb-12">三步上手</h2>
@@ -105,7 +101,7 @@
         <h3 class="font-semibold mb-2">加载扩展</h3>
         <p class="text-slate-600 text-sm">
           打开 <code class="code-block bg-white px-1 rounded">chrome://extensions</code>，
-          右上角开启开发者模式 → 加载已解压的扩展程序 → 选中下载的 <b>extension</b> 文件夹。
+          右上角开启开发者模式 → 加载已解压的扩展程序 → 选中解压后的 <b>extension</b> 文件夹。
         </p>
       </div>
       <div class="text-center">
@@ -126,36 +122,30 @@
   </div>
 </section>
 
-<!-- FAQ -->
 <section id="faq" class="max-w-4xl mx-auto px-6 py-16">
   <h2 class="text-3xl font-bold text-center mb-10">常见问题</h2>
   <div class="space-y-4">
     <details class="bg-white rounded-lg border border-slate-200 p-4">
       <summary class="cursor-pointer font-medium">为什么有些图片打包时会被跳过？</summary>
       <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-        部分电商服务器开启了防盗链（CORS），浏览器扩展在 <code class="code-block bg-slate-100 px-1 rounded">host_permissions</code>
-        已覆盖 <code class="code-block bg-slate-100 px-1 rounded">{'<all_urls>'}</code>，但仍有少数站点加了 Referer/Origin 校验。
-        单张下载时可直接右键保存，批量 ZIP 会跳过这些受保护的图片并在控制台打印警告。
+        部分电商服务器开启了防盗链（CORS），单张下载时可直接右键保存，批量 ZIP 会跳过这些受保护的图片并在控制台打印警告。
       </p>
     </details>
     <details class="bg-white rounded-lg border border-slate-200 p-4">
       <summary class="cursor-pointer font-medium">支持 Safari / Edge 吗？</summary>
       <p class="mt-2 text-sm text-slate-600">
-        Manifest V3 标准，Edge、Brave、Opera 等 Chromium 内核浏览器直接可用。
-        Safari 因架构不同暂不支持。
+        Manifest V3 标准，Edge、Brave、Opera 等 Chromium 内核浏览器直接可用。Safari 因架构不同暂不支持。
       </p>
     </details>
     <details class="bg-white rounded-lg border border-slate-200 p-4">
       <summary class="cursor-pointer font-medium">扩展会上传我的浏览记录吗？</summary>
       <p class="mt-2 text-sm text-slate-600">
-        不会。所有图片抓取、打包逻辑均在本地完成，代码已托管到 GitHub，可自行审计。
-        不请求任何第三方 API。
+        不会。所有图片抓取、打包逻辑均在本地完成，代码已托管到 GitHub，可自行审计。不请求任何第三方 API。
       </p>
     </details>
   </div>
 </section>
 
-<!-- Footer -->
 <footer class="border-t border-slate-200 py-8 text-center text-slate-500 text-sm">
   <p>© 2026 EcomImg Downloader · MIT License · Made with ❤️ for 设计狗与选品师</p>
 </footer>
